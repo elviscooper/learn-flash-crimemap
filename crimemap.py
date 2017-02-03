@@ -14,9 +14,9 @@ def home():
 	except Exception as e:
 		print e
 		data = None
-	render_template("home.html", data=data)
+	return render_template("home.html", data=data)
 
-@app.route("add", methods=["POST"])
+@app.route("/add", methods=["POST"])
 def add():
 	try:
 		data = request.form.get("userinput")
@@ -25,7 +25,7 @@ def add():
 		print e
 	return home()
 
-@app.route("clear")
+@app.route("/clear")
 def clear():
 	try:
 		DB.clear_all()
